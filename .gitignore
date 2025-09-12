@@ -28,8 +28,10 @@ coverage
 # Bower dependency directory (https://bower.io/)
 bower_components
 
-# node_modules is handled by submodules
 # node_modules
+node_modules/
+api/node_modules/
+client/node_modules/
 
 # TypeScript v1 declaration files
 typings/
