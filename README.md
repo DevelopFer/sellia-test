@@ -47,7 +47,7 @@ When cloning this repository, you need to initialize and update the submodules:
 
 ```bash
 # Clone the main repository
-git clone <repository-url> sellia
+git clone https://github.com/DevelopFer/sellia-test.git sellia
 cd sellia
 
 # Initialize and update submodules
@@ -55,7 +55,7 @@ git submodule init
 git submodule update
 
 # Alternative: Clone with submodules in one command
-git clone --recurse-submodules <repository-url> sellia
+git clone --recurse-submodules https://github.com/DevelopFer/sellia-test.git sellia
 ```
 
 ### 2. Development Setup
@@ -261,15 +261,18 @@ npm run test:e2e      # End-to-end tests (when implemented)
 This project consists of three separate Git repositories:
 
 1. **Main Repository** (`sellia`): Orchestration and documentation
-   - Repository: Contains this README and Docker Compose configuration
+   - Repository: https://github.com/DevelopFer/sellia-test.git
+   - Contains this README and Docker Compose configuration
    - Submodules: References specific commits of API and client repositories
 
 2. **API Repository** (`sellia-api`): NestJS backend
+   - Repository: https://github.com/DevelopFer/sellia-api.git
    - Independent development and version control
    - Can be deployed separately
    - Contains complete API application with tests
 
 3. **Client Repository** (`sellia-client`): Vue 3 frontend  
+   - Repository: https://github.com/DevelopFer/sellia-client.git
    - Independent development and version control
    - Can be deployed separately
    - Contains complete client application
