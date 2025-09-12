@@ -1,6 +1,6 @@
 [submodule "api"]
 	path = api
-	url = /Users/fernando/Sites/var/sellia-api
+	url = https://github.com/DevelopFer/sellia-api.git
 [submodule "client"]
 	path = client
-	url = /Users/fernando/Sites/var/sellia-client
+	url = https://github.com/DevelopFer/sellia-client.git
