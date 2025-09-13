@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   api:
+    container_name: sellia-api
     build:
       context: ./api
       dockerfile: Dockerfile
@@ -12,9 +13,13 @@ services:
       - /usr/src/app/node_modules
     environment:
       - NODE_ENV=development
+      - MONGO_URL=mongodb://mongo:27017/db
     command: npm run start:dev
+    depends_on:
+      - mongo
 
   client:
+    container_name: sellia-client
     build:
       context: ./client
       dockerfile: Dockerfile
@@ -25,3 +30,14 @@ services:
       - /usr/src/app/node_modules
     depends_on:
       - api
+
+  mongo:
+    image: mongo:6
+    container_name: sellia-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
