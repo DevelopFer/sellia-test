@@ -17,6 +17,8 @@ services:
     command: npm run start:dev
     depends_on:
       - mongo
+    networks:
+      - sellia-network
 
   client:
     container_name: sellia-client
@@ -28,16 +30,28 @@ services:
     volumes:
       - ./client:/usr/src/app
       - /usr/src/app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:3001/api
     depends_on:
       - api
+    networks:
+      - sellia-network
 
   mongo:
     image: mongo:6
     container_name: sellia-mongo
+    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
     ports:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+    networks:
+      - sellia-network
 
 volumes:
   mongo_data:
+
+networks:
+  sellia-network:
+    driver: bridge
+    name: sellia-network
