@@ -14,6 +14,8 @@ services:
     environment:
       - NODE_ENV=development
       - MONGO_URL=mongodb://mongo:27017/db
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_MODEL=gpt-4o-mini
     command: npm run start:dev
     depends_on:
       - mongo
