@@ -27,7 +27,7 @@ services:
   - key: OPENAI_MODEL
     value: gpt-4o-mini
   - key: CORS_ORIGIN
-    value: "https://sellia-client-3zqr5.ondigitalocean.app,http://localhost:3002"
+    value: "https://sellia-client-3zqr5.ondigitalocean.app,http://localhost:3002,http://localhost:3000"
   - key: JWT_SECRET
     value: ${JWT_SECRET}
   - key: RATE_LIMIT_MAX
