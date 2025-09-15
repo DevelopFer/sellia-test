@@ -6,8 +6,8 @@ services:
 - name: api
   source_dir: /api
   github:
-    repo: DevelopFer/sellia-test
-    branch: deploy/digital-ocean
+    repo: DevelopFer/sellia-api
+    branch: main
   run_command: npm run start:prod
   build_command: npm run build
   environment_slug: node-js
@@ -27,7 +27,7 @@ services:
   - key: OPENAI_MODEL
     value: gpt-4o-mini
   - key: CORS_ORIGIN
-    value: ${_self.URL}
+    value: "https://sellia-client-3zqr5.ondigitalocean.app,http://localhost:3002"
   - key: JWT_SECRET
     value: ${JWT_SECRET}
   - key: RATE_LIMIT_MAX

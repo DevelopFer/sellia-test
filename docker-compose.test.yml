@@ -1,24 +1,16 @@
 version: '3.8'
 
 services:
-  api:
-    container_name: sellia-api
+  api-test:
+    container_name: sellia-api-test
     build:
       context: ./api
       dockerfile: Dockerfile.dev
     ports:
       - "3001:3000"
-    volumes:
-      - ./api/src:/usr/src/app/src
-      - ./api/prisma:/usr/src/app/prisma
-      - ./api/test:/usr/src/app/test
-      - ./api/package.json:/usr/src/app/package.json
-      - ./api/tsconfig.json:/usr/src/app/tsconfig.json
-      - ./api/nest-cli.json:/usr/src/app/nest-cli.json
     environment:
       - NODE_ENV=development
       - DATABASE_URL=mongodb://mongo:27017/sellia
-      - OPENAI_API_KEY=placeholder-for-development
     depends_on:
       - mongo
     networks:
@@ -37,7 +29,7 @@ services:
     environment:
       - VITE_API_URL=http://localhost:3001/api
     depends_on:
-      - api
+      - api-test
     networks:
       - sellia-network
 
